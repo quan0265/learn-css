@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>grid</title>
+	<style>
+		.grid-repeat{
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+
+			/*grid-template-columns: 1fr 2fr 1fr 1fr 3fr;*/
+		}
+
+		.repeat-item{
+			border: 1px solid black;
+			/*width: 50px;*/
+			height: 50px;
+			margin-right: 5px;
+		}
+
+		.repeat-item:nth-child(5n){
+			margin: 0;
+		}
+
+
+		.grid-gap{
+			display: grid;
+			/*grid-template-columns: 25% 25% 25% 25%;*/
+			grid-template-columns: auto auto auto auto auto;
+			grid-gap: 10px 10px;
+		}
+
+		.gap-item{
+			border: 1px solid black;
+			height: 50px;
+		}
+
+	</style>
+</head>
+<body>
+
+<h3>grid repeat: grid-template-columns: repeat(5, 1fr)  chia thanh 5 phan bang nhau</h3>
+<div class="grid-repeat">
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+	<div class="repeat-item"></div>
+</div>
+
+
+<h3>grid gap</h3>
+<div class="grid-gap">
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+	<div class="gap-item"></div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+<style>
+	
+/*cach 1	*/
+.container{
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.row{
+	overflow: hidden;
+}
+
+.leftMain{
+	float: left;
+	width: 25%;
+}
+
+.main{
+	float: left;
+	width: 50%;
+}
+
+.rightMain{
+	float: left;
+	width: 25%;
+}
+
+
+/*cach 2*/
+.container2{
+	width: 80%;
+	margin: auto;
+}
+
+.row2{
+	overflow: hidden;
+}
+
+.row2>div{
+	float: left;
+}
+
+.leftMain{
+	width: 25%;
+}
+
+.main{
+	width: 50%;
+}
+
+.rightMain{
+	width: 25%;
+}
+
+/*cach 3: bo row di*/
+.container3{
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+}
+
+/*cach 4: khong dung overflow*/
+.container4{
+	width: 80%;
+	margin: auto;
+}
+
+.container4::after{
+	content: "";
+	clear: both;
+	display: table;
+}
+
+	
+</style>
+
+
+
+</head>
+<body>
+
+<div id="main">
+	<div class="container">
+		<div class="row">
+			<div class="leftMain">
+				left main
+			</div>
+
+			<div class="main">
+				main
+			</div>
+
+			<div class="rightMain">
+				right main
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

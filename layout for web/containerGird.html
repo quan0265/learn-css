@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>container use gird</title>
+
+
+<style>
+
+.container{
+	width: 80%;
+	margin: auto; 
+}
+
+.row{
+	display: grid;
+}
+
+.row-main{
+	/*grid-template-columns: auto auto auto;*/
+	grid-template-columns: 25% 50% 25%;
+}
+
+
+.row-products{
+	grid-template-columns: auto auto auto;
+	/*background-color: #191818;*/
+	/*grid-gap: 2px 2px;*/
+	/*border: 2px black solid;*/
+}
+
+.product-item{
+	height: 100px;
+	background-color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 576px){
+	.row-main{
+		grid-template-columns: auto;
+	}
+
+	.row-products{
+		grid-template-columns: auto auto;
+	}
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+<div id="main">
+	<div class="container">
+		<div class="row row-main">
+			<div class="leftMain">
+				left main
+			</div>
+
+			<div class="main">
+				main
+			</div>
+
+			<div class="rightMain">
+				right main
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="products">
+	<div class="container">
+		<div class="row row-products">
+			<div class="product-item">iphone</div>
+			<div class="product-item">iphone</div>
+			<div class="product-item">iphone</div>
+			<div class="product-item">iphone</div>
+			<div class="product-item">iphone</div>
+			<div class="product-item">iphone</div>
+			<div class="product-item">iphone</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

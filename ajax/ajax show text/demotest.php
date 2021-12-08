@@ -1,0 +1,1 @@
+text trong file textaaaa

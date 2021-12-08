@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loading button</title>
+</head>
+
+<body>
+    <style type="text/css">
+
+
+    .button1{
+    	min-width: 100px;
+    	height: 50px;
+    	background: white;
+    	outline: none;
+    	border: 1px solid black;
+    }
+
+    button.loading {
+        /*background-color: transparent;*/
+        /*border: 1px solid #606060;*/
+        position: relative;
+        color: transparent !important;
+        pointer-events: none;
+    }
+
+    button.loading::after {
+        content: '';
+        position: absolute;
+        left: calc(50% - 0.5em);
+        top: calc(50% - 0.5em);
+        animation: spinAround .5s infinite linear;
+        border: 2px solid #606060;
+        border-radius: 290486px;
+        border-right-color: transparent;
+        border-top-color: transparent;
+        display: block;
+        height: 1em;
+        width: 1em;
+        position: absolute !important;
+    }
+
+    @keyframes spinAround {
+        0% {
+            transform: rotate(0deg)
+        }
+
+        to {
+            transform: rotate(359deg)
+        }
+    }
+    </style>
+
+    <button class="button1 loading">abcd</button>
+
+
+
+</body>
+
+</html>

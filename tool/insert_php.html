@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>insert sql php</title>
+	<script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
+
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+
+
+
+
+<style type="text/css">
+	
+#main{
+	width: 50%;
+	/*text-align: center;*/
+	margin: auto;
+	margin-top: 80px;
+}
+
+#main h3{
+	color: #010101;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#main>div{
+	margin-top: 30px;
+}
+
+#main>div p{
+	word-wrap: break-word;
+	margin: 0;
+}
+
+.main-header{
+	text-align: center;
+}
+
+textarea{
+	padding: 8px;
+	width: 100%;
+}
+
+textarea:focus{
+	outline: none;
+}
+
+input{
+	padding: 5px; 
+	/*width: 150px;*/
+}
+
+input:focus{
+	outline: none;
+}
+
+
+.var-list{
+	width: 200px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.var-list li{
+	margin-top: 10px;
+}
+
+.var-post, .var-isset{
+	/*text-align: left;*/
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+<div id="main">
+<h3>insert sql in php</h3>
+
+<div class="main-header">
+	<button id="add">add</button>
+	<button id="delete">delete</button>
+	<button type="submit" id="show">show</button>
+	<button type="submit" id="show1">show1</button>
+</div>
+
+<div class="var-string">
+	<textarea id="var-string" name="var-string" rows="4" cols="" placeholder=""></textarea>
+</div>
+
+<ol class="var-list">
+	<li><input type="text" required="" name="" value=""></li>
+</ol>
+
+<div class="var-1">
+	<p></p>
+</div>
+
+<div class="var-post">
+	<p></p>
+</div>
+
+<div class="var-isset">
+	<p></p>
+</div>
+
+<div class="var-null">
+	<p></p>
+</div>
+
+<div class="var-column">
+	<p></p>
+</div>
+
+<div class="var-column1">
+	<p></p>
+</div>
+
+<div class="var-insert">
+	<p></p>
+</div>
+
+<div class="var-update">
+	<p></p>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	$("#add").click(function(){
+		$(".var-list").append('<li><input type="text" required="" name="" value=""></li>');
+
+	});
+
+	$("#delete").click(function(){
+		var i= $(".var-list li").length-1;
+
+		$(".var-list li:eq("+i+")").remove();
+
+	});
+
+	//set var
+	$("#show1").click(function(){
+
+		//bien var= ...
+		// var var_1= '';
+		// var count= $(".var-list li").length;
+		// var i;
+		// for(i=0; i<count; i++){
+		// 	var a;
+		// 	a= $(".var-list input").eq(i).val();
+		// 	// alert(a);
+		// 	var_1= var_1 + '<p>$'+a+'=   ;</p>';
+		// }
+
+		// $(".var-1").html(var_1);
+
+		//gan var voi bien post
+		var content= '';
+		var count= $(".var-list li").length;
+		var i;
+		for(i=0; i<count; i++){
+			var a;
+			a= $(".var-list input").eq(i).val();
+			// alert(a);
+			content= content + '<p>$'+a+'= $_POST["'+a+'"];</p>';
+		}
+
+		$(".var-post").html(content);
+
+		//isset
+		var isset= '';
+		
+		for(i=0; i<count; i++){
+			var a;
+			a= $(".var-list input").eq(i).val();
+			if(i==0){
+				isset= isset + 'isset($'+a+')';
+			}
+			else{
+				isset= isset + ' && isset($'+a+')';
+			}
+			
+			// alert(a);
+			$(".var-isset p").text(isset);
+		}
+
+
+		//check is null
+		var check_null= '';
+		
+		for(i=0; i<count; i++){
+			var a;
+			a= $(".var-list input").eq(i).val();
+			if(i==0){
+				check_null= check_null + '$'+a+'!=""';
+			}
+			else{
+				check_null= check_null + ' && $'+a+'!=""';
+			}
+			
+			// alert(a);
+			$(".var-null p").text(check_null);
+		}
+
+
+		//column
+		var column= '';
+		
+		for(i=0; i<count; i++){
+			var a;
+			a= $(".var-list input").eq(i).val();
+			if(i==0){
+				column= column + a;
+			}
+			else{
+				column= column + ',' + a;
+			}
+			
+			// alert(a);
+			$(".var-column p").text(column);
+		}
+
+		//column value
+		var column1= '';
+		
+		for(i=0; i<count; i++){
+			var a;
+			a= $(".var-list input").eq(i).val();
+			if(i==0){
+				column1= column1 + "'$"+a+"'";
+			}
+			else{
+				column1= column1 + ",'$"+a+"'";
+			}
+			
+			// alert(a);
+			$(".var-column1 p").text(column1);
+		}
+
+		//insert
+		var insert;
+		insert= "INSERT INTO table("+column+") VALUES("+column1+")";
+
+		$(".var-insert p").text(insert);
+
+	});
+
+
+	$("#show").click(function(){
+
+		var str= $("#var-string").val();
+		str= str.replace(/ /g, '');
+		str= str.replace(/`/g, '');
+		str= str.split(",");
+		
+
+		//set var
+		var set= '';
+		var count= str.length;
+		var i, a;
+		// alert(count);
+
+		for(i=0; i<count; i++){
+			
+			a= str[i];
+			// alert(a);
+			set= set + '<p>$'+a+'= $_POST["'+a+'"];</p>';
+		}
+
+		$(".var-post").html(set);
+
+		//set var1
+		//set var
+		var set1= '';
+		var count= str.length;
+		var i, a;
+		// alert(count);
+
+		for(i=0; i<count; i++){
+			
+			a= str[i];
+			// alert(a);
+			set1= set1 + '<p>$'+a+'= $app->aaaaaaaaaaaa();</p>';
+		}
+
+		$(".var-1").html(set1);
+
+
+		//check isset
+		var isset= '';
+		
+		for(i=0; i<count; i++){
+			
+			a= str[i];
+			if(i==0){
+				isset= isset + 'isset($'+a+')';
+			}
+			else{
+				isset= isset + ' && isset($'+a+')';
+			}
+			
+			// alert(a);
+			$(".var-isset p").text(isset);
+		}
+
+
+		//check is null
+		var check_null= '';
+		
+		for(i=0; i<count; i++){
+			
+			a= str[i];
+			if(i==0){
+				check_null= check_null + '$'+a+'!=""';
+			}
+			else{
+				check_null= check_null + ' && $'+a+'!=""';
+			}
+			
+			// alert(a);
+			$(".var-null p").text(check_null);
+		}
+
+
+		//column
+		var column= '';
+		
+		for(i=0; i<count; i++){
+			
+			a= str[i];
+			if(i==0){
+				column= column + a;
+			}
+			else{
+				column= column + ', ' + a;
+			}
+			
+			// alert(a);
+			$(".var-column p").text(column);
+		}
+
+		//column value
+		var column1= '';
+		
+		for(i=0; i<count; i++){
+			
+			a= str[i];
+			if(i==0){
+				column1= column1 + "'$"+a+"'";
+			}
+			else{
+				column1= column1 + ", '$"+a+"'";
+			}
+			
+			// alert(a);
+			$(".var-column1 p").text(column1);
+		}
+
+		//insert
+		var insert;
+		insert= "INSERT INTO table("+column+") VALUES("+column1+")";
+
+		$(".var-insert p").text(insert);
+
+
+		//column update
+		var update= '';
+		
+		for(i=0; i<count; i++){
+			
+			a= str[i];
+			if(i==0){
+				update= update + a + "='$"+a+"'";
+			}
+			else{
+				update= update + "," + a + "='$"+a+"'";
+			}
+			
+			// alert(a);
+			$(".var-update p").text(update);
+		}
+
+		
+
+	});
+
+
+
+// ate_id='$cate_id',brand_id='$brand_id',product_name='$product_name',product_price='$product_price',product_price_old='$product_price_old',product_image='$product_image',product_status='$product_status',product_warranty='$product_warranty',product_detail='$product_detail'
+
+
+
+
+	// isset($ten_sp) && isset($gia_sp)
+	// $cate_id!="" && $product_name!=""
+	// var myStr = 'quick_brown_fox';
+    // var newStr = myStr.replace(/_/g, "-");
+
+
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

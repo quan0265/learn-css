@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>container float</title>
+
+<style>
+
+*{
+	margin: 0;
+	padding: 0;
+	/*overflow: hidden;*/
+	box-sizing: border-box;
+}
+
+ul{
+	list-style-type: none;
+}
+
+
+a{
+	text-decoration: none;
+	display: inline-flex;
+}
+
+
+.container{
+	width: 90%;
+	margin: auto;
+}
+
+.row{
+	display: flex;
+	/*align-items: center;*/
+	justify-content: ;
+	justify-content: space-around;
+	/*dung flex-wrap thi the con phai co min-width: khi width the co den muc nao do thi se xuong dong khong thu nho nua*/
+	flex-wrap: wrap;
+}
+
+/*header*/
+header{
+	background: #D6FEFF;
+}
+
+.logo{
+	background: #FAE348;
+	height: 80px;
+}
+
+.logo img{
+	width: 200px;
+	height: 80px;
+}
+
+.menu{
+	/*background: #BEFBF2;*/
+	flex-grow: 1;
+	text-align: right;
+	align-content: center;
+}
+
+.menu ul{
+
+}
+
+.menu li{
+	display: inline-flex;
+	/*height: 80px;*/
+}
+
+
+/*---brands---*/
+#brands{
+	padding: 30px 0px;
+}
+
+.brand-item{
+	flex-basis: 25%;
+	border: 2px #FF2929 solid;
+	height: 200px;
+	min-width: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*main*/
+.leftMain{
+	flex-basis: 20%;
+	min-width: 200px;
+}
+
+.main{
+	flex-basis: 60%;
+}
+
+.products{
+
+}
+
+.products h2{
+
+}
+
+.product{
+
+}
+
+.product h4{
+
+}
+
+.product-item{
+	flex-basis: 33%;
+	min-width: 150px;
+}
+
+
+
+.rightMain{
+	flex-basis: 20%;
+	min-width: 200px;
+}
+
+@media{
+
+}
+
+
+</style>
+
+
+
+</head>
+<body>
+
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="logo">
+				<h1><a href="#"><img src="" alt=""></a></h1>
+			</div>
+
+			<nav class="menu">
+				<ul>
+					<li><a href="#">home</a></li>
+					<li><a href="#">about</a></li>
+					<li><a href="#">home</a></li>
+					<li><a href="#">home</a></li>
+					<li><a href="#">home</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+
+<div id="brands">
+	<div class="container">
+		<div class="row">
+			<div class="brand-item">iphone</div>
+			<div class="brand-item">iphone</div>
+			<div class="brand-item">iphone</div>
+			<div class="brand-item">iphone</div>
+			<div class="brand-item">iphone</div>
+			<div class="brand-item">iphone</div>
+			<div class="brand-item">iphone</div>
+			<div class="brand-item">iphone</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div id="main">
+	<div class="container">
+		<div class="row">
+			<div class="leftMain">
+				left main
+			</div>
+
+			<div class="main">
+				<div class="products">
+					<h2>product</h2>
+					<div class="product">
+						<div class="row">
+							<div class="product-item">
+								<h4>iphone</h4>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, tempora!</p>
+							</div>
+							<div class="product-item">
+								<h4>iphone</h4>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, tempora!</p>
+							</div>
+							<div class="product-item">
+								<h4>iphone</h4>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, tempora!</p>
+							</div>
+							<div class="product-item">
+								<h4>iphone</h4>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, tempora!</p>
+							</div>
+							<div class="product-item">
+								<h4>iphone</h4>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, tempora!</p>
+							</div>
+							<div class="product-item">
+								<h4>iphone</h4>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, tempora!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="rightMain">
+				right main
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script type="text/javascript" src="../../jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	
+<div>a</div>
+
+<button>show</button>
+
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+	// $.ajax({
+	// 	url: "test.html",
+	// 	method: "POST",
+	// 	data: {},
+	// 	success: function(data){
+	// 		$("div").html(data);
+	// 	}
+	// });
+	$("button").click(function(){
+		$.ajax({
+			url	:	"demotest.php",
+			// method:	"GET",
+			// data	:	{},
+			success	:	function(data){
+				$("div").html(data);
+			}
+		})
+	})
+	
+
+	// $.get("test.html", {}, function(data){
+	// 	$("div").html(data);
+	// })
+});
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

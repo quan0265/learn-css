@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
+	<title>filter checkbox</title>
+</head>
+
+<style>
+	.container{
+		width: 80%;
+		margin: auto;
+	}
+
+	.active{
+		display: list-item;
+	}
+
+	li{
+		display: none;
+	}
+
+	.page .active{
+		display: block;
+	}
+
+	.page-item{
+		display: none;
+	}
+
+	#pagination{
+		text-align: center;
+	}
+
+	.pagination a{
+		padding: 10px;
+		display: inline-block;
+		background: orange;
+	}
+
+	.pagination .active{
+		background: red;
+	}
+</style>
+
+<body>
+
+<div class="container">
+	
+	<form action="#">
+		<div>
+			<input type="checkbox" name="phone" value="iphone" id="iphone">
+			<label for="iphone">iphone</label>
+		</div>
+		<div>
+			<input type="checkbox" name="phone" id="samsung" value="samsung">
+			<label for="samsung">samsung</label>
+		</div>
+		<div>
+			<input type="checkbox" name="laptop" id="dell" value="dell">
+			<label for="dell">dell</label>
+		</div>	
+		<div>
+			<input type="checkbox" name="laptop" id="asus" value="asus">
+			<label for="asus">asus</label>
+		</div>			
+	</form>	
+
+
+	<ul>
+		<li class="iphone">iphone1</li>
+		<li class="iphone">iphone2</li>
+		<li class="iphone">iphone3</li>
+		<li class="samsung">samsung1</li>
+		<li class="samsung">samsung2</li>
+		<li class="samsung">laptop asus</li>
+		<li class="samsung">laptop dell</li>
+		<li class="samsung">laptop dell</li>
+	</ul>
+
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<div id="pagination">
+		<div class="page">
+			<div class="page-item">page1</div>
+			<div class="page-item">page2</div>
+			<div class="page-item">page3</div>
+			<div class="page-item">page4</div>
+			<div class="page-item">page5</div>
+			<div class="page-item">page6</div>
+			<div class="page-item">page7</div>
+			<div class="page-item">page8</div>
+			<div class="page-item">page9</div>
+			<div class="page-item">page10</div>
+		</div>
+
+		<br>
+		<br>
+
+		<div class="pagination">
+			<a href="#">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var check = true;
+		var loai=[];
+
+		// $("input").each(function(index){
+		// 	loai[index]=$(this).val();
+		// });
+
+		$("li").addClass("active");
+
+		$("input").click(function(){
+			// when one first click hide all item
+			if(check==true){
+				$("li").removeClass("active");
+				check=false;
+			}
+
+			var ten_hang=$(this).val();
+			// if($("#iphone").prop("checked")==true){
+			// 	$(".iphone").css("display", "list-item");
+			// }
+			// else{
+			// 	$(".iphone").css("display", "none");
+			// }
+
+
+
+			// if($("#"+loai[0]).prop("checked")==true){
+			// 	$("li").each(function(){
+			// 		if($(this).text().includes("#"+loai[0])==true){
+			// 			$(this).css("display", "none");
+			// 		}
+			// 	});
+			// }
+
+			// var i=0;
+			// for(i=0; i<loai.length; i++){
+			// 	if($("#"+loai[i]).prop("checked")==true){
+			// 		$("li").each(function(){
+			// 			if($(this).text().includes("#"+loai[i])==true){
+			// 				$(this).css("display", "list-item");
+			// 			}
+			// 		});
+			// 	}
+			// }
+
+
+			if($(this).prop("checked")==true){
+				$("li").each(function(){
+					if($(this).text().includes(ten_hang)==true){
+						// $(this).css("display", "list-item");
+						$(this).addClass("active");
+					}
+				});
+			}
+			
+			if($(this).prop("checked")==false){
+				$("li").each(function(){
+					if($(this).text().includes(ten_hang)==true){
+						$(this).removeClass("active");
+					}
+				});
+			}
+
+		});
+
+
+		//pagination
+
+		var countPage=3;
+		var start, end, i;
+		for(i=0; i<countPage; i++){
+				$(".page-item").eq(i).addClass("active");
+			}
+
+		$(".pagination a").eq(0).addClass("active");
+		$(".pagination a").click(function(){
+
+			$(".pagination a").removeClass("active");
+			$(".page-item").removeClass("active");
+
+			$(this).addClass("active");
+			// alert($(this).index());
+			
+
+			start=countPage * $(this).index();
+			end= start + countPage;
+			for(i=start; i<end; i++){
+				$(".page-item").eq(i).addClass("active");
+			}
+		});
+
+
+
+
+
+
+
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

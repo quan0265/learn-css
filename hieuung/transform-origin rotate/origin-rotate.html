@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<style>
+
+.menu>li{
+	position: relative;
+}
+
+.menu>li:hover .menu-item{
+	transform: rotateX(0deg);
+}
+
+.menu-item{
+	position: absolute;
+	top: 10px;
+	left: 0;
+	transform-origin: 100% 0;
+	transform: rotateX(90deg);
+	transition: all 0.5s;
+}
+	
+.menu-item a{
+	display: block;
+	min-width: 150px;
+	background: aqua;
+}
+</style>
+<body>
+<ul class="menu">
+	<li>
+		<a href="#">home</a>
+		<div class="menu-item">
+			<a href="">home1</a>
+			<a href="">home1</a>
+			<a href="">home1 sks sksk  ssss ssss sks s 111</a>
+			<a href="">home1</a>
+		</div>
+	</li>
+</ul>
+
+
+
+
+
+</body>
+</html>

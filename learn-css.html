@@ -1,0 +1,62 @@
+
+- hide arrow input number:
+<style type="text/css">
+	/* Chrome, Safari, Edge, Opera */
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+
+	/* Firefox */
+	input[type=number] {
+	  -moz-appearance: textfield;
+	}
+</style>
+
+-turn off auto suggest input html:
+<form method="post" action="/post/" autocomplete="off">
+	<!-- The entire form has autocomplete disabled. -->
+</form>
+<!-- or you turn it off for just one input -->
+<input type="text" autocomplete="off">
+
+
+- Text Truncation, cắt chữ sau đó thêm 3 dấu chấm vào:
+	- one line
+	- multiple line
+<style>
+
+	.element {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	/* hiển thị 3 dòng rồi mới thêm dấu ... */
+	.element {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+
+</style>	
+
+- Khi text liền nhau dài vi dụ link
+<style>
+	p {
+		overflow-wrap: break-word;
+	}
+
+	p {
+	    word-break: break-word;
+	}
+</style>
+
+-  Flexbox And Long Content
+	- sử dụng flex, bên trong có 2 thẻ, 1 thẻ có text dài quá dùng ..., 1 thẻ là button 
+	- nội dung vẫn ảnh hưởng giao diện
+	- block text dùng min-width:0, mặt định min-width là auto, bình thường auto là 0, nhưng khi trong thẻ flex thì lúc này min-width sẽ thay đổi, nên dùng min-width:0 là được
+

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>loading</title>
+
+<style>
+
+	*{
+		box-sizing: border-box;
+	}
+
+	.product-list{
+		max-width: 800px;
+		margin: auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		border-left: 1px solid black;
+		border-top: 1px solid black;
+	}
+	
+	.product-item{
+		/*width: 200px;*/
+		/*height: 200px;*/
+		min-width: 25%;
+		width: 25%;
+		/*background: black;*/
+		border-bottom: 1px solid black;
+		border-right: 1px solid black;
+		position: relative;
+	}
+
+	.product-image{
+		overflow: hidden;
+		height: 0;
+		/*font-size: 0;*/
+		padding-bottom: 100%;
+		position: relative;
+	}
+
+	.product-image img{
+		position: absolute;
+		display: block;
+		max-width: 100%;
+		height: 100%;
+		object-fit: cover;
+
+	}
+
+	.loading{
+	    position: absolute;
+	    z-index: 0;
+	    display: inline-block;
+	    width: 50px;
+	    height: 50px;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%,-50%);
+	}
+
+	.loading::after{
+	    content: " ";
+	    display: block;
+	    width: 50px;
+	    height: 50px;
+	    margin: 1px;
+	    border-radius: 50%;
+	    border: 5px solid #fff;
+	    border-color: #FFBB4F transparent #FFBB4F transparent;
+	    -webkit-animation: rotation 1.2s linear infinite;
+	    -moz-animation: rotation 1.2s linear infinite;
+	    animation: rotation 1.2s linear infinite;
+
+	}
+
+	@keyframes rotation{
+		0%{
+			-webkit-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		100%{
+			-webkit-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+
+
+
+
+</style>
+
+
+</head>
+<body>
+
+<div class="product-list">
+	<div class="product-item">
+		<div class="product-image">
+			<div class="loading"></div>
+			<img src="https://ljcdn.comtucdncom.com/upload/vod/20210605-1/30b29cc879179e15ea0d229ec86af81c.jpg" alt="">
+		</div>
+		<div class="product-title">iphone</div>
+	</div>
+	<!-- <div class="product-item">
+		<div class="product-image">
+			<div class="loading"></div>
+			<img src="https://www.andyshora.com/archive/assets/img/pages/grumpy-cat.jpg" alt="">
+		</div>
+		<div class="product-title">iphone</div>
+	</div>
+	<div class="product-item">
+		<div class="product-image">
+			<div class="loading"></div>
+			<img src="https://www.andyshora.com/archive/assets/img/pages/grumpy-cat.jpg" alt="">
+		</div>
+		<div class="product-title">iphone</div>
+	</div>
+	<div class="product-item">
+		<div class="product-image">
+			<div class="loading"></div>
+			<img src="https://www.andyshora.com/archive/assets/img/pages/grumpy-cat.jpg" alt="">
+		</div>
+		<div class="product-title">iphone</div>
+	</div>
+	<div class="product-item">
+		<div class="product-image">
+			<div class="loading"></div>
+			<img src="https://www.andyshora.com/archive/assets/img/pages/grumpy-cat.jpg" alt="">
+		</div>
+		<div class="product-title">iphone</div>
+	</div>
+	<div class="product-item">
+		<div class="product-image">
+			<div class="loading"></div>
+			<img src="https://www.andyshora.com/archive/assets/img/pages/grumpy-cat.jpg" alt="">
+		</div>
+		<div class="product-title">iphone</div>
+	</div> -->
+</div>	
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

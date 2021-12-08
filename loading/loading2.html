@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>loading</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="css/style.css"> -->
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+	.product-item{
+		width: 200px;
+		position: relative;
+		border: 1px solid #D6CACA;
+	}
+
+	.product-image{
+		position: relative;
+		height: 0px;
+		overflow: hidden;
+		padding-bottom: 100%;
+	}
+
+	.product-image img{
+		object-fit: cover;
+	}
+
+	.spinner-border{
+		position: absolute;
+		z-index: -1;
+	    top: calc(50% - 1rem);
+	    left: calc(50% - 1rem);
+	    border-width: 3px;
+	}
+
+	/*loading1*/
+	.loading1{
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		border: 3px solid #ffc107;
+		border-right-color: transparent;
+		border-left-color: transparent;
+	    -webkit-animation: loading .75s linear infinite;
+	    -moz-animation: loading .75s linear infinite;
+    	animation: loading .75s linear infinite;
+    	position: absolute;
+    	z-index: -1;
+    	top: calc(50% - 1rem);
+	    left: calc(50% - 1rem);
+	}
+
+	.loading2{
+		/*pointer-events: none;*/
+		position: relative;
+		min-height: 60px;
+		min-width: 60px;
+	}
+
+	.loading2::after{
+		content: "";
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		border: 3px solid #ffc107;
+		border-right-color: transparent;
+		border-left-color: transparent;
+	    -webkit-animation: loading1 .75s linear infinite;
+	    -moz-animation: loading1 .75s linear infinite;
+    	animation: loading1 .75s linear infinite;
+    	position: absolute;
+    	z-index: -1;
+    	top: calc(50% - 1rem);
+	    left: calc(50% - 1rem);
+	}
+
+
+
+	@keyframes loading{
+		0%{ 
+			-webkit-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			transform: rotate(0deg);
+		 }
+
+		 100%{ 
+			-webkit-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			transform: rotate(360deg);
+		 }
+	}
+
+	@keyframes loading1{
+		0%{ 
+			-webkit-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			transform: rotate(0deg);
+		 }
+
+		 100%{ 
+			-webkit-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			transform: rotate(360deg);
+		 }
+	}
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class="product-list">
+	<div class="product-item">
+		<div class="product-image">
+			<div class="spinner-border text-warning"></div>
+			<!-- <img src="https://www.andyshora.com/archive/assets/img/pages/grumpy-cat.jpg" alt=""> -->
+		</div>
+	</div>
+</div>
+
+
+<div class="product-list">
+	<div class="product-item">
+		<div class="product-image">
+			<div class="loading1"></div>
+			<!-- <img src="https://www.andyshora.com/archive/assets/img/pages/grumpy-cat.jpg" alt=""> -->
+		</div>
+	</div>
+</div>
+
+<div class="product-list">
+	<div class="product-item">
+		<div class="product-image">
+			<div class="loading1"></div>
+			<!-- <img src="https://www.andyshora.com/archive/assets/img/pages/grumpy-cat.jpg" alt=""> -->
+		</div>
+	</div>
+</div>
+
+<div class="product-out">
+	<div class="loading2"></div>
+</div>
+
+
+</body>
+</html>
