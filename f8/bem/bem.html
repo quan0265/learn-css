@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>bem</title>
+	<link rel="stylesheet" href="bem.css">
+</head>
+<body>
+
+<!-- 
+
+	- Bem
+		- Là tiêu chuẩn đặt tên class khi viết CSS
+		- Ý nghĩa:
+			- Viết tắt của: Block Element Modifier
+			- Block: khối
+			- Element: Thành phần trong khối
+			- Modifier: bổ sung ý nghĩa cho block hoặc element
+		- Tại sao phải dùng Bem:
+			- Mỗi người đặt 1 kiểu
+			- Members dặt class trùng nhau, CSS đè lên nhau
+		- Cú pháp:
+			- .block
+			- .block__element
+			- .block--modifier
+			- .block__element--modifier
+		- Tính ứng dụng:
+			- Xây dựng layout website
+			- Xây dựng thành phần trên website
+		- Ưu điểm:
+			- Tính rõ ràng
+			- Tái sử dụng dễ dàng
+			- Giúp cả team làm việc với nhau dễ dàng
+			- Tính module, không lo CSS của class này ảnh hưởng lên CSS của class khác
+		- Nhược điểm:
+			- Tên class dài
+			- Một số người cho là xấu
+		- Khi nào dùng BEM là phù hợp 
+			- Dự án nhiều members
+			- Dự án lớn, số lượng pages nhiều hoặc số lượng các thành phần trên giao diện nhiều
+		- Thực hành:
+			- Làm button:
+				- Enabled: Pointer, hover effect
+				- Disabled: Arrow, no effect
+			- Làm message
+			- Làm 1 thành phần trên website
+
+ -->
+
+<!-- BEM -->
+<div class="card card--success">
+	<h3 class="card__heading">Saved!</h3>
+	<p class="card__desc">Lorem ipsum dolor, sit amet consectetur.</p>
+	<div class="card__btn">OK, cool</div>
+</div>
+
+<div class="card card--error">
+	<h3 class="card__heading">Saved!</h3>
+	<p class="card__desc">Lorem ipsum dolor, sit amet consectetur.</p>
+	<div class="card__btn card__btn--size-s">OK, cool</div>
+</div>
+
+
+
+<!-- 
+	btn có thể là the div, button, a. check từng thẻ rồi set default
+
+ -->
+
+<div class="block">
+	<button class="btn btn--success btn--disabled btn--size-s">GO TO NEXT APPROVAL</button>
+	<button class="btn btn--warn btn--size-s">OK</button>
+	<button class="btn btn--danger btn--size-s">TRY AGAIN</button>
+</div>	
+
+<div class="block">
+	<button class="btn btn--success">GO TO NEXT APPROVAL</button>
+	<button class="btn btn--warn">OK</button>
+	<button class="btn btn--danger">TRY AGAIN</button>
+</div>	
+
+<div class="block">
+	<button class="btn btn--success btn--size-l">GO TO NEXT APPROVAL</button>
+	<button class="btn btn--warn btn--size-l">OK</button>
+	<button class="btn btn--danger btn--size-l">TRY AGAIN</button>
+</div>	
+
+</body>
+</html>

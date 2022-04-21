@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>learn css</title>
+</head>
+<body>
+	
+- Đặt biến trong css:
+	<style type="text/css">
+		:root {
+			--text-color: red;
+		}
+		h1 {
+			/* Nếu không có biến thì dùng red */
+			color: var(--text-color, red);
+		}
+	</style>
+
+- Đơn vị trong css:
+	- %, rem,(luôn phụ thuộc thẻ html) px, vw, vh
+	- Set font-size 1rem tương đương 10px:
+		<style>
+			html {
+				font-size: 62.5%;
+			}
+			p {
+				font-size: 1rem; /* => 10px */
+			}
+		</style>
+
+- Css function:
+	- var
+	- linear-gradient
+	- rgb
+	- calc
+	<style>
+		.box1 {
+			width: calc(80% + 20px)
+		}
+	</style>
+	- attr: .box1::after{ content: attr(data-title) }
+
+- pseudo classes (lớp giả): có dấu 2 chấm và đến tên của lớp giả
+	- :root
+	- :hover, :focus
+	- :first-child, :last-child, :nth-child(1), :nth-child(2n + 1), :nth-child(2n), ...
+- pseudo elements:
+	- ::before, ::after
+	- ::first-letter, ::first-line,
+	- ::selection (khi bôi chuột chọn 1 đoạn văn bản)
+		
+- padding, border, margin, box-sizing
+
+- background:
+	background-clip: border-box(border-box), padding-box, content-box chỉ định khoảng cách nền mở rộng trong 1 phần tử
+	background-image: url('paper.gif')
+	background-size: cover || contain || 20px auto || 20px 20px, kích thước của ảnh
+	background-origin: border-box || padding-box || content -box
+	background-position: center || 20px 50px
+- Edit tag img:
+	- object-fit: contain | cover, ...
+	- object-position: center || 20px 50px ,...
+
+- position:
+	- relative
+	- absolute
+	- fixed
+
+- Flex:
+	- https://codepen.io/enxaneta/full/adLPwv/
+	- Properties of div parent:
+		- display: flex | inline-flex
+		- flex-direction: row | column
+		- flex-wrap: nowrap | wrap | wrap-reverse
+		- flex-basis: <length>
+		- justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly
+		- justify-self: flex-start | flex-end | center
+		- aligin-self: flex-start | flex-end | center
+	- Properties of div children:
+		- flex-grow: number
+		- flex-shrink: number
+		- flex: flex-grow | flex-shrink | flex-basis
+		- flex-flow: flex-direction | flex-wrap
+		- order: number - đổi vị trí của child item, thấp đến cao
+	- Trong 1 row có 2 block, muốn 2 block ở 2 góc 2 bên:
+		<style>
+			.nav {
+				display: flex;
+				justify-content: space-between;
+			}
+		</style>
+	- Trong 1 form, muốn thẻ label có width bằng nhau và phần còn lại của input:
+		<style>
+			.form_row {
+				display: flex;
+			}
+			.form_label {
+				min-width: 100px;
+			}
+			.form_input {
+				flex: 1;
+			}
+		</style>
+	- Trong 1 row muốn 2 block có width là 1 phần, 1 block là 3 phần:
+		<style>
+			.column-layout {
+				display: flex;
+			}
+			.sidebar-one, .sidebar-two {
+				flex: 1;
+			}
+			.main-column {
+				flex: 3;
+			}
+		</style>
+	- Trong 1 row có 3 block muốn mỗi block width = 30%, phần còn lại là khoảng cách giữa các block + 2 bên bằng nhau:
+		- space-between: 2 bên không có khoảng cách, các khoảng cách giữa các block bằng nhau
+		- space-evenly: 2 bên và ở giữa các block có khoảng cách đều nhau
+		- space-around: 2 bên đều bằng 1/2 khoảng cách giữa các block
+		<style>
+			.feature-layout {
+				display: flex;
+				justify-content: space-evenly;
+			}
+			.feature-item {
+				flex-basis: 30%;
+			}
+		</style>
+	- Trong 1 row các block có width 148px, nếu width của row không đủ width các khối thì lên dòng (tách 1 block lên dòng bên trên), và khoảng cách 2 bên của các khối trên 1 dòng là bằng 1/2 khoảng cách giữa các khối:
+		- wrap-reverse đổi chiều cross axis dưới lên trên
+		<style>
+			.wrap-layout {
+				display: flex;
+				justify-content: space-around;
+				flex-wrap: wrap-reverse;
+			}
+			.wrap-layout__item {
+				width: 148px;
+			}
+		</style>
+	- Căn giữa cả chiều ngang và dọc:
+		<style>
+			.center-layout {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+	- Các block làm thành biểu đồ cột có chiều cao khác nhau, khi dùng flex thì bị đảo ngược, chỉnh lại khoảng cách giữa các cột đều nhau:
+		<style>
+			.chart-layout {
+				display: flex;
+				align-items: flex-end;
+				justify-content: space-evenly;
+			}
+		</style>
+	- Muốn khối first và second trên 1 hàng, đảo ngược khối first bên phải, khối second bên trái và 2 khối width bằng nhau, block one và two có height bằng nhau, two bên trên:
+		<div class="the-end">
+			<div class="the-end__first"></div>
+			<div class="the-end__second">
+				<div class="the-end_second-one"></div>
+				<div class="the-end_second-two"></div>
+			</div>
+		</div>	
+		<style>
+			.the-end {
+				display: flex;
+				flex-direction: row-reverse;
+			}
+			.the-end__first {
+				flex: 1;
+			}
+			.the-end__second {
+				flex: 1;
+				display: flex;
+				flex-direction: column-reverse;
+			}
+			.the-end__second-one, .the-end__second-two {
+				flex: 1;
+			}
+		</style>
+
+- Animation:
+	- Chạy mượt hơn: 
+		- dùng will-change kèm với animation: opacity, transform,... 
+		- dùng transision thay cho animation: transition: all linear 0.3s;
+	- Tạo toastr message:
+		- TransalteX -100% -> 0
+		- Delay 3s opacity 1 -> 0, và dừng ở điểm cuối của keyframes không hiện thị nữa
+		<style>
+			.toast {
+				/* delay 3s, forwards: stop ở điểm cuối */
+				animation: slideInLeft ease 0.3s, fadeOut linear 1s 3s forwards;
+				/* có thể dùng transition thay cho animation */
+				/*transition: all linear 0.3s;*/
+			}
+			@keyframes slideInLeft {
+				from {
+					opacity: 0;
+					transform: translateX(calc(100% + 32px));
+				}
+				to {
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+
+			@keyframes fadeOut {
+				from {
+					opacity: 1;
+				}
+				to {
+					opacity: 0;
+				}
+			}
+		</style>		
+	- Khi hiển thị nhỏ đến 100%, hiển thị góc ra to ra dần - thay đổi trong tâm:
+		<style>
+			.header-notify {
+				will-change: opacity, transform; /* chạy mượt hơn */
+			    transform-origin: calc(100% - 20px) top;
+			    animation: headerNotifyGrowth ease-in .3s;
+			}
+			@keyframes headerNotifyGrowth {
+			    from {
+			        opacity: 0;
+			        transform: scale(0);
+			    }
+			    to {
+			        opacity: 1;
+			        transform: scale(1);
+			    }
+			}
+		</style>		
+
+- Một số thủ thuật:
+	- Chỉ set css cho element child thứ 2 trở đi:
+		<style>
+			.item + .item {
+				margin-top: 10px;
+			}
+		</style>
+	- Văn bản chỉ 1 hàng: white-space: nowrap;
+
+- Những thành phần thường gặp trên giao diện website:
+	- Header (đầu trang)
+	- Navvigation (điều hướng)
+	- Breadcrumb
+	- Sidebar
+	- Banner
+	- Content (nội dung chính)
+	- Footer
+
+- Modal:
+		- Khi click button hiển thị modal, modal chạy trên xuống trung tâm dùng animation và keyframs, tối ưu chuyển động:
+			<style>
+				.modal-container {
+					animation: modalFadeIn ease .4s;
+				}
+				@keyframes modalFadeIn { 
+					from {
+						opacity: 0;
+						transform: translateY(-300px);
+					}
+					to {
+						opacity: 1;
+						transform: translateY(0);
+					}
+				}
+			</style>	
+- Ngăn chặn hành vi nổi bọt trong javascript: khi click vào đúng vào element có class modal, click element modal-container bên trong thì không tính:
+	<script type="text/javascript">
+		const modal = document.querySelector('js-modal')
+		const modalContainer = document.querySelector('js-modal-container')
+		modal.addEventListener('click', function() {
+			// Logic ...
+		})
+		modalContainer.addEventListener('click', function(event) {
+			// Ngăn chặn hành vi nổi bọt
+			event.stopPropagation()
+		})
+	</script>
+
+- Xây dựng web the band:
+	- Phân tích dự án:
+		- Header
+		- Sidebar
+		- Content
+			- About
+			- Tour
+			- Contact
+			- Image
+			- Footer
+		- Footer
+	- Tạo project base
+	- Header: nav, search, fixed
+	- Slider:
+		- Kỹ thuật nâng cao: background image
+	- Content:
+		- Vì có nhiều phần giống nhau đều có heading và sub heading chia thành nhiều khối  đặt tên chung là class:
+			- content-section:
+				- section-heading
+				- section-sub-heading
+		- Các khối section:
+			- About
+			- Tour: 
+				- Tickes list
+				- Places list
+			- Contact:
+				<style>
+					/* Lựa chọn class chứa ti- */
+					.contact-info i[class*='ti-'] { }
+				</style>
+	- Footer
+	- Modal:
+			- Khi click button hiển thị modal, modal chạy trên xuống trung tâm dùng animation và keyframs:
+				<style>
+					.modal-container {
+						animation: modalFadeIn ease .4s;
+					}
+					@keyframes modalFadeIn { 
+						from {
+							opacity: 0;
+							transform: translateY(-300px);
+						}
+						to {
+							opacity: 1;
+							transform: translateY(0);
+						}
+					}
+				</style>	
+			- Ngăn chặn hành vi nổi bọt trong javascript: khi click vào đúng vào element có class modal (click vào các element con trong modal không tính)
+
+			<script type="text/javascript">
+				const modalContainer = document.querySelector('js-modal-container')
+				modalContainer.addEventListener('click', function(event) {
+					// Ngăn chặn hành vi nổi bọt
+					event.stopPropagation()
+				})
+			</script>
+
+	- Reviews:
+		- Đặt id cho từng section và chỉnh lại href thẻ a đến từng id
+		- Khi cuộn thì có hiệu ứng
+		<style>
+			html { 
+				scroll-behavior: smooth; 
+			}
+		</style>
+	- Fix bugs:
+		- Text treen banner khá khó nhìn
+		- Sửa file tĩnh thành link tương đối
+		- Nhóm braak point mobile: @media(max-width: 739px)
+		- Dùng đơn vị em cho Media queries: @media(max-width: 64em), ...
+
+
+- Responsive:
+	- Media:
+		<style>
+			/* PC */
+			@media (min-width: 1024px) {
+
+			}
+
+			/* Tablet */
+			@media (min-width: 740px) and (max-width: 1023px) {
+
+			}
+
+			/* Mobile */
+			@media (max-width: 740px) {
+				
+			}
+		</style>			
+	- Fix row khi dùng margin-left, margin-right âm, dùng .container bao ngoài .row
+		<style>
+			/* class parent ngay bên ngoài khi dùng .row */
+			.container {
+				padding-left: 8px;
+				padding-right: 8px;
+			}
+			/* fix row khi */
+			.row {
+				margin-left: -8px;
+				margin-right: -8px;
+			}
+		</style>
+
+
+- Ui: tiện cho người dùng
+	- Để button có padding to ra 
+	- khi mobile nên để button full 100%
+
+- Bem
+	- Cú pháp:
+		- .block
+		- .block__element
+		- .block--modifier
+		- .block__element--modifier
+	- Trường hợp block lồng block
+		- Block con là thành phần dùng chung:
+			<div class="card">
+				<div class="card_title"></div>
+				<div class="card_desc"></div>
+				<div class="btn btn--primary float-left"></div>
+			</div>
+		- Block con chứa nhiều element: 
+			- Tách block ra
+			<div class="header">
+				<!-- New block -->
+				<div class="navbar">
+					<div class="navbar__item"></div>
+					<div class="navbar__item"></div>
+				</div>
+				<!-- new block -->
+				<div class="header-search">
+					<div class="header-search__input"></div>
+					<div class="header-search__btn"></div>
+				</div>
+
+				<div class="search-suggest">
+					<div class="search-suggest__item"></div>
+				</div>
+			</div>
+
+- Xây dựng web shopee:
+	- Reset css: <a href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"></a>
+	- Base:
+		- Thông thường 100% tương đương 16px, 62.5 => 10px
+		<style>
+			* {
+				box-sizing: inherit;
+			}
+			html {
+				/* 10px */
+				font-size: 62.5%;
+				/* sans-serif: chữ không có chân; */
+				font-family: 'Roboto', sans-serif;
+				box-sizing: border-box;
+			}
+			p {
+				/* 12px */
+				font-size: 1.2rem;
+			}
+		</style>
+		- Chọn font google <a href="https://fonts.google.com/specimen/Roboto"></a>
+	- Header:
+		- Căn giữa theo chiều dọc icon và text
+			<style>
+				.navbar__item,
+				.navbar__item__link,
+				.navbar__icon__link {
+					display: inline-flex;
+					align-items: center;
+				}
+			</style>		
+		- Khi hover 1 menu item hiển thị 1 sub menu, muốn sub menu hiển thị cách 1 khoảng cách của menu item sử dụng lớp giả ::before
+			<style>
+				.menu-item {
+					position: relative;
+				}
+				.menu-item:hover .submenu {
+					display: block;
+				}
+				.submenu {
+					position: absolute;
+				    top: 120%;
+				    left: 0;
+				    display: none;
+				}
+				.submenu::before {
+				    content: "";
+				    display: block;
+				    width: 100%;
+				    height: 20px;
+				    position: absolute;
+				    /*background: transparent;*/
+				    top: -16px;
+				}
+			</style>			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
