@@ -182,6 +182,10 @@ textarea {
     -webkit-appearance: button;
 }
 
+[placeholder] {
+    text-overflow: ellipsis;
+}
+
 progress {
     /* vertical-align: baseline; */
 }
