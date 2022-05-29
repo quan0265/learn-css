@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>boostrap 5</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- <script type="text/javascript" src="bootstrap.bundle.js"></script> -->
+
+</head>
+<body>
+
+<style type="text/css">
+	.container {
+		max-width: 600px;
+	}
+	br {
+		height: 16px;
+		display: block;
+	}
+	.block {
+		margin-top: 50px;
+		padding-bottom: 32px;
+		border-bottom: 1px solid #cecece;
+	}
+	.block h5 {
+		margin-bottom: 20px;
+	}
+</style>
+
+<div class="container">
+
+
+<div class="block">
+	<h5>Dropdown</h5>
+	<div class="dropdown">
+	    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+	        Dropdown button
+	    </button>
+	    <ul class="dropdown-menu">
+	        <li><a class="dropdown-item" href="#">Link 1</a></li>
+	        <li><a class="dropdown-item" href="#">Link 2</a></li>
+	        <li><a class="dropdown-item" href="#">Link 3</a></li>
+	    </ul>
+	</div>
+</div>	
+
+<div class="block">
+	<h5>Simple Collapsible</h5>
+	<p>Click on the button to toggle between showing and hiding content.</p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#demo">Simple collapsible</button>
+    <div id="demo" class="collapse show">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+</div>
+
+<div class="block">
+	<h5>Collapse</h5>
+	<div id="accordion">
+	    <div class="card1">
+	        <div class="card-header">
+	            <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+	                Collapsible Group Item #1
+	            </a>
+	        </div>
+	        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+	            <div class="card-body">
+	                Lorem ipsum..
+	            </div>
+	        </div>
+	    </div>
+	    <div class="card1">
+	        <div class="card-header">
+	            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+	                Collapsible Group Item #2
+	            </a>
+	        </div>
+	        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+	            <div class="card-body">
+	                Lorem ipsum..
+	            </div>
+	        </div>
+	    </div>
+	    <div class="card1">
+	        <div class="card-header">
+	            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+	                Collapsible Group Item #3
+	            </a>
+	        </div>
+	        <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+	            <div class="card-body">
+	                Lorem ipsum..
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<div class="block">
+	<h5>Nav Tabs</h5>
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs">
+	    <li class="nav-item">
+	        <a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a>
+	    </li>
+	    <li class="nav-item">
+	        <a class="nav-link" data-bs-toggle="tab" href="#menu1">Menu 1</a>
+	    </li>
+	    <li class="nav-item">
+	        <a class="nav-link" data-bs-toggle="tab" href="#menu2">Menu 2</a>
+	    </li>
+	</ul>
+	<!-- Tab panes -->
+	<div class="tab-content">
+	    <div class="tab-pane container active" id="home">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam.</div>
+	    <div class="tab-pane container fade" id="menu1">Lorem ipsum, dolor sit, amet consectetur adipisicing elit.</div>
+	    <div class="tab-pane container fade" id="menu2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, voluptates.</div>
+	</div>
+</div>
+
+<div class="block">
+	<h5>Nav Pills</h5>
+	<!-- Nav tabs -->
+	<ul class="nav nav-pills">
+	    <li class="nav-item">
+	        <a class="nav-link active" data-bs-toggle="pill" href="#pill1">Home</a>
+	    </li>
+	    <li class="nav-item">
+	        <a class="nav-link" data-bs-toggle="pill" href="#pill2">Menu 1</a>
+	    </li>
+	    <li class="nav-item">
+	        <a class="nav-link" data-bs-toggle="pill" href="#pill3">Menu 2</a>
+	    </li>
+	</ul>
+	<!-- Tab panes -->
+	<div class="tab-content">
+	    <div class="tab-pane container active" id="pill1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam.</div>
+	    <div class="tab-pane container fade" id="pill2">Lorem ipsum, dolor sit, amet consectetur adipisicing elit.</div>
+	    <div class="tab-pane container fade" id="pill3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, voluptates.</div>
+	</div>
+</div>
+
+<div class="block">
+	<h5>Navbar</h5>
+	<!-- navbar-expand-sm: hiển thị navbar toggler khi màn hình sm -->
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <div class="container-fluid">
+	        <a class="navbar-brand" href="#">Logo</a>
+	        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+	            <span class="navbar-toggler-icon"></span>
+	        </button>
+	        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+	            <ul class="navbar-nav">
+	                <li class="nav-item">
+	                    <a class="nav-link" href="#">Link</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link" href="#">Link</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link" href="#">Link</a>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</nav>
+</div>
+
+<div class="block">
+	<h5>Carousel</h5>
+	<!-- Carousel -->
+	<div id="demo_carousel" class="carousel slide" data-bs-ride="carousel">
+	    <!-- Indicators/dots -->
+	    <div class="carousel-indicators">
+	        <button type="button" data-bs-target="#demo_carousel" data-bs-slide-to="0" class="active"></button>
+	        <button type="button" data-bs-target="#demo_carousel" data-bs-slide-to="1"></button>
+	        <button type="button" data-bs-target="#demo_carousel" data-bs-slide-to="2"></button>
+	    </div>
+	    <!-- The slideshow/carousel -->
+	    <div class="carousel-inner" style="height: 300px">
+	        <div class="carousel-item active">
+	            <img src="https://picsum.photos/200/100" alt="Los Angeles" class="d-block w-100">
+	        </div>
+	        <div class="carousel-item">
+	            <img src="https://picsum.photos/200/100" alt="Chicago" class="d-block w-100">
+	        </div>
+	        <div class="carousel-item">
+	            <img src="https://picsum.photos/200/100" alt="New York" class="d-block w-100">
+	        </div>
+	    </div>
+	    <!-- Left and right controls/icons -->
+	    <button class="carousel-control-prev" type="button" data-bs-target="#demo_carousel" data-bs-slide="prev">
+	        <span class="carousel-control-prev-icon"></span>
+	    </button>
+	    <button class="carousel-control-next" type="button" data-bs-target="#demo_carousel" data-bs-slide="next">
+	        <span class="carousel-control-next-icon"></span>
+	    </button>
+	</div>
+</div>
+
+<div class="block">
+	<h5>Modal</h5>
+	<!-- Button to Open the Modal -->
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+	    Open modal
+	</button>
+	<!-- The Modal -->
+	<div class="modal fade" id="myModal">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <!-- Modal Header -->
+	            <div class="modal-header">
+	                <h4 class="modal-title">Modal Heading</h4>
+	                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	            </div>
+	            <!-- Modal body -->
+	            <div class="modal-body">
+	                Modal body..
+	            </div>
+	            <!-- Modal footer -->
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<div class="block">
+	<h5>Form</h5>
+	<form action="/action_page.php">
+	    <div class="mb-3 mt-3">
+	        <label for="email" class="form-label">Email:</label>
+	        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+	    </div>
+	    <div class="mb-3">
+	        <label for="pwd" class="form-label">Password:</label>
+	        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+	    </div>
+	    <div class="form-check mb-3">
+	        <label class="form-check-label">
+	            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+	        </label>
+	    </div>
+	    <div class="form-check form-check-inline">
+	    	<label class="form-label">
+	    		<input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1">Option 2
+	    	</label>
+	    </div>
+	    <div class="form-check form-check-inline">
+	    	<label class="form-label">
+	    		<input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Option 2
+	    	</label>
+	    </div>
+	    <div class="mb-3">
+	    	<label class="form-label"></label>
+	    	<select class="form-select">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>
+	    </div>	
+	    <div class="mb-3">
+		    <label for="comment">Comments:</label>
+			<textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+	    </div>
+	    <div class="form-check form-switch mb-3">
+			<input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
+			<label class="form-check-label" for="mySwitch">Dark Mode</label>
+		</div>
+		<div class="mb-3">
+			<label>Range</label>
+			<input type="range" class="form-range" step="10">
+		</div>
+	    <div class="mb-3">
+	    	<label id="color">Colors</label>
+	    	<input type="color" class="form-control form-control-color" id="color" value="#CCCCCC">
+	    </div>
+	    <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+<div class="block">
+	<h5>Floating Lables</h5>
+	<form action="/action_page.php">
+	    <div class="form-floating mb-3 mt-3">
+	        <input type="text" class="form-control" id="email1" placeholder="Enter email" name="email">
+	        <label for="email1">Email</label>
+	    </div>
+	    <div class="form-floating mt-3 mb-3">
+	        <input type="text" class="form-control" id="pwd1" placeholder="Enter password" name="pswd">
+	        <label for="pwd1">Password</label>
+	    </div>
+	    <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+	
+<div class="block d-none">
+	<h5>Spinners</h5>
+	<div class="spinner-border text-info"></div>
+
+	<hr>
+	<button class="btn btn-primary" disabled>
+		<span class="spinner-border spinner-border-sm"></span>
+		Loading..
+	</button>
+	<button class="btn btn-primary" disabled>
+		<span class="spinner-grow spinner-grow-sm"></span>
+		Loading..
+	</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
