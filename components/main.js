@@ -1,38 +1,6 @@
 
-
-function getBoundingClientRect(element, // eslint-disable-next-line unused-imports/no-unused-vars
-    includeScale) {
-
-    var rect = element.getBoundingClientRect();
-    var scaleX = 1;
-    var scaleY = 1; // FIXME:
-    // `offsetWidth` returns an integer while `getBoundingClientRect`
-    // returns a float. This results in `scaleX` or `scaleY` being
-    // non-1 when it should be for elements that aren't a full pixel in
-    // width or height.
-    // if (isHTMLElement(element) && includeScale) {
-    //   const offsetHeight = element.offsetHeight;
-    //   const offsetWidth = element.offsetWidth;
-    //   // Do not attempt to divide by 0, otherwise we get `Infinity` as scale
-    //   // Fallback to 1 in case both values are `0`
-    //   if (offsetWidth > 0) {
-    //     scaleX = rect.width / offsetWidth || 1;
-    //   }
-    //   if (offsetHeight > 0) {
-    //     scaleY = rect.height / offsetHeight || 1;
-    //   }
-    // }
-
-    return {
-        width: rect.width / scaleX,
-        height: rect.height / scaleY,
-        top: rect.top / scaleY,
-        right: rect.right / scaleX,
-        bottom: rect.bottom / scaleY,
-        left: rect.left / scaleX,
-        x: rect.left / scaleX,
-        y: rect.top / scaleY
-    };
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 document.querySelector('body').addEventListener('click', (e) => {
@@ -57,9 +25,6 @@ document.querySelector('body').addEventListener('click', (e) => {
 		var selector = toggle.getAttribute('data-bs-target') || toggle.getAttribute('href')
 		var collapse = document.querySelector(selector)
 		if (collapse) {
-			// collapse.classList.toggle('show')
-			// console.log(getBoundingClientRect(collapse))
-			// console.log(collapse.scrollHeight)
 			if (collapse.style.maxHeight) {
 				collapse.style.maxHeight = null
 			}
@@ -68,5 +33,60 @@ document.querySelector('body').addEventListener('click', (e) => {
 			}
 		}
 	}
+
+    // Tab
+    if (e.target.closest('.nav-tabs')) {
+        var tabs = e.target.closest('.nav-tabs')
+        var tab_content = tabs.nextElementSibling
+        tabs.querySelectorAll('[data-bs-toggle=tab]').forEach((item, index) => {
+            item.onclick = (e) => {
+                e.preventDefault()
+                tabs.querySelectorAll('[data-bs-toggle=tab]').forEach(item => {
+                    item.classList.remove('active')
+                })
+                item.classList.add('active')
+
+                tab_content.querySelectorAll('.tab-pane').forEach((item, index) => {
+                    item.classList.remove('active', 'show')
+                })
+                tab_content.querySelectorAll('.tab-pane')[index].classList.add('active', 'show')
+            }
+        })
+    }
+
+    // Modal
+    if (e.target.closest('[data-bs-toggle=modal]')) {
+        var button = e.target.closest('[data-bs-toggle=modal]')
+        var modal = document.querySelector(button.getAttribute('data-bs-target'))
+        if (modal) {
+            var modal_background = document.createElement('div')
+            modal_background.classList.add('modal-backdrop', 'fade', 'show')
+            document.body.appendChild(modal_background)
+
+            document.body.classList.add('modal-open')
+            document.body.style.overflow = 'hidden'
+
+            modal.style.display = 'block'
+            // modal.classList.add('show')
+            setTimeout(function() {
+                modal.classList.add('show')
+            }, 1)
+        }
+    }
+    if (e.target.closest('[data-bs-dismiss=modal]') || e.target.closest('.modal-backdrop') || e.target.classList.contains('modal')) {
+        document.body.classList.remove('modal-open')
+        document.body.style.overflow = ''
+        document.querySelectorAll('.modal').forEach(item => {
+            item.classList.remove('show')
+            item.style.display = ''
+        })
+        document.querySelector('.modal-backdrop').remove()
+    }
+
+
+
+
+
+
 })
 

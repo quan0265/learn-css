@@ -29,7 +29,7 @@
 	.block h5 {
 		margin-bottom: 20px;
 	}
-	.btn {
+	/*.btn {
 	    display: inline-block;
 	    font-weight: 400;
 	    line-height: 1.5;
@@ -58,7 +58,7 @@
 	    background-color: #0b5ed7;
 	    border-color: #0a58ca;
 	    box-shadow: 0 0 0 0.125rem rgb(49 132 253 / 50%);
-	}
+	}*/
 
 </style>
 
@@ -197,9 +197,55 @@
 	</div>
 </div>
 
+<div class="block">
+	<h5>Nav Tabs</h5>
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs">
+	    <li class="nav-item">
+	        <a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a>
+	    </li>
+	    <li class="nav-item">
+	        <a class="nav-link" data-bs-toggle="tab" href="#menu1">Menu 1</a>
+	    </li>
+	    <li class="nav-item">
+	        <a class="nav-link" data-bs-toggle="tab" href="#menu2">Menu 2</a>
+	    </li>
+	</ul>
+	<!-- Tab panes -->
+	<div class="tab-content">
+	    <div class="tab-pane container fade active" id="home">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam.</div>
+	    <div class="tab-pane container fade" id="menu1">Lorem ipsum, dolor sit, amet consectetur adipisicing elit.</div>
+	    <div class="tab-pane container fade" id="menu2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, voluptates.</div>
+	</div>
+</div>
 
-
-
+<div class="block">
+	<h5>Modal</h5>
+	<!-- Button to Open the Modal -->
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+	    Open modal
+	</button>
+	<!-- The Modal -->
+	<div class="modal fade" id="myModal">
+	    <div class="modal-dialog modal-dialog-centered">
+	        <div class="modal-content">
+	            <!-- Modal Header -->
+	            <div class="modal-header">
+	                <h4 class="modal-title">Modal Heading</h4>
+	                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	            </div>
+	            <!-- Modal body -->
+	            <div class="modal-body">
+	                Modal body..
+	            </div>
+	            <!-- Modal footer -->
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
 
 
 
