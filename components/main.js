@@ -15,8 +15,12 @@ document.querySelector('body').addEventListener('click', (e) => {
 		if (toggle && dropdown_menu) {
 			dropdown_menu.classList.toggle('show')
 		}
-
 	}
+    if (!e.target.closest('.dropdown-toggle')) {
+        document.querySelectorAll('.dropdown-menu').forEach(item => {
+            item.classList.remove('show')
+        })
+    }
 
 	// Collapse
 	if (e.target.closest('[data-bs-toggle=collapse]')) {
