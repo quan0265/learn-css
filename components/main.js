@@ -77,6 +77,7 @@ document.querySelector('body').addEventListener('click', (e) => {
             }, 1)
         }
     }
+    // Close modal
     if (e.target.closest('[data-bs-dismiss=modal]') || e.target.closest('.modal-backdrop') || e.target.classList.contains('modal')) {
         document.body.classList.remove('modal-open')
         document.body.style.overflow = ''

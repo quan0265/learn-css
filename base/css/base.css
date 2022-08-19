@@ -1698,6 +1698,8 @@ progress {
     }
 }
 
+
+/* SETTING */
 .img-contain, .img-cover {
     height: 0;
     padding-bottom: 100%;
