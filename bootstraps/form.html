@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form boostrap 5</title>
+<link rel="stylesheet" href="D://assets/css/bootstrap.min.css">
+<script type="text/javascript" src="D://assets/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="D://assets/js/jquery.min.js"></script>
+</head>
+<body class="container">
+
+<style type="text/css">
+	form.needs-validation .form-group {
+		margin-bottom: 1rem;
+	}
+	form.needs-validation .form-group label.form-label{
+		display: block;
+		font-size: 1rem
+	}
+	form.needs-validation .form-group label.form-label>span {
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		display: inline-block;
+	}
+</style>
+	<form action="" class="needs-validation mt-5 form-setting" novalidate enctype="multipart/form-data">
+		<div class="form-group">
+	        <label class="form-label">
+	        	<span>Full name</span>
+		        <input type="text" class="form-control" placeholder="Enter full name" value="" name="full_name" required="">
+		        <div class="invalid-feedback">Your full name is required</div>
+		        <div class="valid-feedback">Success</div>
+	        </label>
+	    </div>
+	    <div class="form-group">
+	        <label class="form-label">
+	        	<span>Email</span>
+		        <input type="email" class="form-control" placeholder="Enter email" name="email" disabled value="">
+	        </label>
+	    </div>
+	    <div class="form-group">
+	        <label class="form-label">
+	        	<span>A little self-introduction</span>
+		        <textarea name="about" class="form-control" rows="5"></textarea>
+	        </label>
+	    </div>
+	    <div class="form-group">
+	    	<label class="form-label">
+	    		<span>Image</span>
+	    		<input type="file" name="image" class="form-control" class="">
+	    	</label>
+	    </div>
+	    <div class="alert alert-success" style="display: none">Successful! Your profile has been updated successfully</div>
+	    <div class="alert alert-error" style="display: none">Error! Update failed, please check the information again</div>
+	    <div class="form-group">
+	    	<button type="submit" class="btn btn-primary w-sm-100">
+	    		Update profile
+	    		<span class="spinner-border spinner-border-sm text-white mt-1 ms-1" role="status" aria-hidden="true" style="display: none;"></span>
+		    </button>
+	    </div>
+	</form>
+
+<script type="text/javascript">
+	//  bs validate
+	var forms = document.querySelectorAll('form.needs-validation')
+    forms.forEach(function(form) {
+        form.addEventListener('submit', function() {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        })
+    })
+
+    // preview image
+	$('.form-setting [name=image]').on('change', function() {
+		$('.form-setting img').attr('src', window.URL.createObjectURL(this.files[0]));
+	})
+
+	$('.form-setting').on('submit', function(e) {
+		e.preventDefault()
+		var image = $('.form-setting [name=image]').prop('files')[0];
+        if(image){
+            var picsize = (image.size);
+            if(picsize > 1097152){
+                alert("Image allowd less than 1 mb");
+                return;
+            }
+        }
+
+        var formData = new FormData(this)
+        formData.append('action', 'edit')
+        $(".form-setting button[type=submit]").attr("disabled", true);
+        $(".form-setting .spinner-border").show();
+        $.ajax({
+        	url: '/ajax/profile.php',
+        	method: 'post',
+        	data: formData,
+        	processData: false, 
+            contentType: false,
+            complete: function() {
+            	$(".form-setting .spinner-border").hide()
+        		setTimeout(function() {
+        			// window.location.reload()
+        		}, 2500)
+            },
+        	success: function(res) {
+        		if (res.includes('update_true')) {
+                    $("div.alert-success").fadeIn();
+        		}
+        		else {
+        			$("div.alert-error").fadeIn();
+        		}
+        	}
+        })
+	})
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

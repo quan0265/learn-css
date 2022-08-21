@@ -45,6 +45,8 @@
 	        <li><a class="dropdown-item" href="#">Link 1</a></li>
 	        <li><a class="dropdown-item" href="#">Link 2</a></li>
 	        <li><a class="dropdown-item" href="#">Link 3</a></li>
+	        <li><hr class="dropdown-divider"></li>
+			<li><a class="dropdown-item" href="#">Log out</a></li>
 	    </ul>
 	</div>
 </div>
@@ -234,10 +236,12 @@
 
 <div class="block">
 	<h5>Form</h5>
-	<form action="/action_page.php">
+	<form action="/action_page.php" class="needs-validation" novalidate enctype = multipart/form-data>
 	    <div class="mb-3 mt-3">
 	        <label for="email" class="form-label">Email:</label>
-	        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+	        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required="">
+	        <div class="invalid-feedback">Your name is required.</div>
+	        <div class="valid-feedback">Looks good!</div>
 	    </div>
 	    <div class="mb-3">
 	        <label for="pwd" class="form-label">Password:</label>
@@ -285,6 +289,18 @@
 	    <button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>
+<script type="text/javascript">
+	var forms = document.querySelectorAll('form.needs-validation')
+    forms.forEach(function(form) {
+    	form.addEventListener('submit', function() {
+    		if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+    	})
+    })
+</script>
 
 <div class="block">
 	<h5>Floating Lables</h5>
@@ -327,24 +343,7 @@
 
 
 
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
