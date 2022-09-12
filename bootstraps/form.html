@@ -63,16 +63,36 @@
 
 <script type="text/javascript">
 	//  bs validate
-	var forms = document.querySelectorAll('form.needs-validation')
-    forms.forEach(function(form) {
-        form.addEventListener('submit', function() {
-            if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-            }
-            form.classList.add('was-validated')
-        })
+	// var forms = document.querySelectorAll('form.needs-validation')
+ //    forms.forEach(function(form) {
+ //        form.addEventListener('submit', function(event) {
+ //            if (!form.checkValidity()) {
+ //                event.preventDefault()
+ //                event.stopPropagation()
+ //            }
+ //            form.classList.add('was-validated')
+ //        })
+ //    })
+
+ 	(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
     })
+})()
 
     // preview image
 	$('.form-setting [name=image]').on('change', function() {
@@ -81,6 +101,9 @@
 
 	$('.form-setting').on('submit', function(e) {
 		e.preventDefault()
+		// if (!this.checkValidity()) {
+		// 	return 1
+		// }
 		var image = $('.form-setting [name=image]').prop('files')[0];
         if(image){
             var picsize = (image.size);
