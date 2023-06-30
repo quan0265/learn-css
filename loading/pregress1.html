@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Progress</title>
+</head>
+<body>
+
+<style>
+	.progress {
+	    opacity: 1;
+	    z-index: 999999;
+	}
+	.progress {
+		background-color: rgb(0, 153, 255);
+	    opacity: 0;
+	    position: fixed;
+	    top: 0px;
+	    left: 0px;
+	    width: 0%;
+	    height: 4px;
+	    transition: opacity 0.4s ease 0s;
+	}
+
+	.progress.active1 {
+		width: 80%;
+	    opacity: 1;
+	    transition: width 0.6s cubic-bezier(1, 0.01, 0.75, 0.91) 0s, opacity 0.4s ease 0s;
+	}
+	.progress.active2 {
+		width: 100%;
+	    transition: width 0.6s cubic-bezier(1, 0.01, 0.75, 0.91) 0s, opacity 0.4s ease 0s;
+	}
+</style>
+<div class="progress"></div>
+
+<button>run</button>
+
+<script type="text/javascript">
+	var $btn = document.querySelector('button');
+	var $progress = document.querySelector('.progress');
+	$btn.addEventListener('click', function(e) {
+		// $progress.style.width = '80%';
+		$progress.classList.add('active1');
+		setTimeout(function() {
+			$progress.classList.add('active2');
+			setTimeout(function(){
+				$progress.classList.remove('active1');
+				$progress.classList.remove('active2');
+			} , 650)
+		}, 2000)
+	})
+
+
+
+</script>
+
+</body>
+</html>
