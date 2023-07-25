@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Loading comment</title>
+</head>
+<body>
+	
+
+	<style>
+		.loader-c {
+			background-color: rgba(22, 24, 35, 0.06);
+		    background-image: linear-gradient(90deg, rgba(22, 24, 35, 0) 0%, rgba(22, 24, 35, 0.04) 50%, rgba(22, 24, 35, 0) 100%);
+		    background-size: 200% 100%;
+		    background-repeat: no-repeat;
+		    border-radius: 4px;
+		    animation: 1.5s cubic-bezier(0, 0, 1, 1) 0s infinite normal none running loader_c;
+		}
+		
+		.box {
+		    display: flex;
+		    align-items: flex-start;
+		}
+		.box__image {
+		    width: 32px;
+		    height: 32px;
+		    border-radius: 100px;
+		    flex-shrink: 0;
+		    margin-right: 4px;
+		}
+		.box__main {
+			flex-grow: 1;
+		}
+		.box__main-item {
+			margin-bottom: 8px;
+		}
+		@keyframes loader_c{
+			0% {
+				background-position-x: 200%;
+			}
+			100% {
+				background-position-x: -150%;
+			}
+		}
+	</style>
+	<div style="width: 400px;">
+		<div class="box">
+			<div class="box__image loader-c">
+				
+			</div>
+			<div class="box__main">
+				<div class="box__main-item loader-c" style="width: 120px; height: 17px"></div>
+				<div class="box__main-item loader-c" style="width: 100%; height: 18px"></div>
+				<div class="box__main-item loader-c" style="width: 96px; height: 12px"></div>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>
