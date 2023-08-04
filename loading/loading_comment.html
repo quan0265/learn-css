@@ -17,6 +17,14 @@
 		    border-radius: 4px;
 		    animation: 1.5s cubic-bezier(0, 0, 1, 1) 0s infinite normal none running loader_c;
 		}
+		@keyframes loader_c{
+			0% {
+				background-position-x: 200%;
+			}
+			100% {
+				background-position-x: -150%;
+			}
+		}
 		
 		.box {
 		    display: flex;
@@ -35,19 +43,10 @@
 		.box__main-item {
 			margin-bottom: 8px;
 		}
-		@keyframes loader_c{
-			0% {
-				background-position-x: 200%;
-			}
-			100% {
-				background-position-x: -150%;
-			}
-		}
 	</style>
 	<div style="width: 400px;">
-		<div class="box">
+		<div class="box load_content">
 			<div class="box__image loader-c">
-				
 			</div>
 			<div class="box__main">
 				<div class="box__main-item loader-c" style="width: 120px; height: 17px"></div>

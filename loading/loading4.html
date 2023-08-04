@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loader</title>
+    <style>
+    	* {
+    		margin: 0;
+    		padding: 0;
+    		box-sizing: border;
+    	}
+    	.container {
+    		width: 1120px;
+    		margin: 24px auto;
+    		display: flex;
+    		flex-wrap: wrap;
+    	}
+    	.box {
+		    position: relative;
+		    background: #fff;
+		    padding: 32px 5%;
+		    margin: 24px 0;
+		    box-shadow: 0 4px 12px -2px rgba(0, 32, 128, .1), 0 0 0 1px rgba(60, 80, 120, 0.1);
+		    border-radius: 16px;
+		    width: 160px;
+		    margin-right: 16px;
+		    margin-bottom: 16px;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+    	}
+    	.box::before {
+		    display: inline-block;
+		    position: absolute;
+		    top: 6px;
+		    left: 6px;
+		    padding: 0 8px;
+		    content: attr(data-title);
+		    font-size: 12px;
+		    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+		    color: white;
+		    /*background-color: rgb(255, 25, 100);*/
+		    background-color: green;
+		    border-radius: 10px;
+		    line-height: 20px;
+    	}
+    </style>
+</head>
+
+<body>
+<div class="container">
+	<div class="box" data-title="circ-path">
+        <style>
+        .spinner-path {
+            height: 32px;
+            width: 32px;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+            border: 3px solid;
+            border-radius: 50%;
+            border-right-color: #5a5a5a;
+            border-left-color: #5a5a5a;
+            animation: rotate 1s linear infinite;
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        </style>
+        <div class="spinner-path"></div>
+    </div>
+
+    <div class="box" data-title="dot-elastic">
+    	<style>
+    		.dot-elastic {
+			    position: relative;
+			    width: 10px;
+			    height: 10px;
+			    border-radius: 5px;
+			    background-color: #9880ff;
+			    color: #9880ff;
+			    animation: dot-elastic 1s infinite linear;
+    		}
+    		.dot-elastic::before, .dot-elastic::after {
+			    content: "";
+			    display: inline-block;
+			    position: absolute;
+			    top: 0;
+			}
+			.dot-elastic::before {
+				left: -15px;
+				width: 10px;
+				height: 10px;
+				border-radius: 5px;
+				background-color: #9880ff;
+				color: #9880ff;
+				animation: dot-elastic-before 1s infinite linear;
+			}
+			.dot-elastic::after {
+				left: 15px;
+				width: 10px;
+				height: 10px;
+				border-radius: 5px;
+				background-color: #9880ff;
+				color: #9880ff;
+				animation: dot-elastic-after 1s infinite linear;
+			}
+			@keyframes dot-elastic-before {
+			    0% {
+			        transform: scale(1, 1);
+			    }
+
+			    25% {
+			        transform: scale(1, 1.5);
+			    }
+
+			    50% {
+			        transform: scale(1, 0.67);
+			    }
+
+			    75% {
+			        transform: scale(1, 1);
+			    }
+
+			    100% {
+			        transform: scale(1, 1);
+			    }
+			}
+
+			@keyframes dot-elastic {
+			    0% {
+			        transform: scale(1, 1);
+			    }
+
+			    25% {
+			        transform: scale(1, 1);
+			    }
+
+			    50% {
+			        transform: scale(1, 1.5);
+			    }
+
+			    75% {
+			        transform: scale(1, 1);
+			    }
+
+			    100% {
+			        transform: scale(1, 1);
+			    }
+			}
+
+			@keyframes dot-elastic-after {
+			    0% {
+			        transform: scale(1, 1);
+			    }
+
+			    25% {
+			        transform: scale(1, 1);
+			    }
+
+			    50% {
+			        transform: scale(1, 0.67);
+			    }
+
+			    75% {
+			        transform: scale(1, 1.5);
+			    }
+
+			    100% {
+			        transform: scale(1, 1);
+			    }
+			}
+    	</style>
+		<div class="dot-elastic"></div>
+	</div>
+
+	<div class="box" data-title="dot-pulse">
+		<style>
+			.dot-pulse {
+			    position: relative;
+			    left: -9999px;
+			    width: 10px;
+			    height: 10px;
+			    border-radius: 5px;
+			    background-color: #9880ff;
+			    color: #9880ff;
+			    box-shadow: 9999px 0 0 -5px;
+			    animation: dot-pulse 1.5s infinite linear;
+			    animation-delay: 0.25s;
+			}
+			.dot-pulse::before,
+			.dot-pulse::after {
+			    content: "";
+			    display: inline-block;
+			    position: absolute;
+			    top: 0;
+			    width: 10px;
+			    height: 10px;
+			    border-radius: 5px;
+			    background-color: #9880ff;
+			    color: #9880ff;
+			}
+			.dot-pulse::before {
+			    box-shadow: 9984px 0 0 -5px;
+			    animation: dot-pulse-before 1.5s infinite linear;
+			    animation-delay: 0s;
+			}
+			.dot-pulse::after {
+			    box-shadow: 10014px 0 0 -5px;
+			    animation: dot-pulse-after 1.5s infinite linear;
+			    animation-delay: 0.5s;
+			}
+			@keyframes dot-pulse-before {
+			    0% {
+			        box-shadow: 9984px 0 0 -5px;
+			    }
+
+			    30% {
+			        box-shadow: 9984px 0 0 2px;
+			    }
+
+			    60%,
+			    100% {
+			        box-shadow: 9984px 0 0 -5px;
+			    }
+			}
+			@keyframes dot-pulse {
+			    0% {
+			        box-shadow: 9999px 0 0 -5px;
+			    }
+
+			    30% {
+			        box-shadow: 9999px 0 0 2px;
+			    }
+
+			    60%,
+			    100% {
+			        box-shadow: 9999px 0 0 -5px;
+			    }
+			}
+			@keyframes dot-pulse-after {
+			    0% {
+			        box-shadow: 10014px 0 0 -5px;
+			    }
+
+			    30% {
+			        box-shadow: 10014px 0 0 2px;
+			    }
+
+			    60%,
+			    100% {
+			        box-shadow: 10014px 0 0 -5px;
+			    }
+			}
+		</style>
+		<div class="dot-pulse"></div>
+	</div>
+
+</div>
+    
+</body>
+
+</html>
