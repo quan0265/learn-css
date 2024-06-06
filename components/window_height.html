@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window height</title>
+</head>
+<body>
+    
+<!-- 
+    - Trên màn hình mobile khi dùng 100vh thì sẽ bao gồm luôn cả thanh điều khiển
+    - Tính dùng window.innerHeight mới đúng
+
+
+ -->
+
+<style>
+    :root {
+        --window_height: 100vh;
+    }
+</style>
+
+<script>
+    // set fullheight
+    function setFullHeight() {
+        const height = window.innerHeight;
+        document.body.style.setProperty('--window_height', `${height}px`);
+    }
+    window.addEventListener('resize', setFullHeight);
+    window.addEventListener('orientationchange', setFullHeight);
+    window.addEventListener('load', setFullHeight);
+    setFullHeight();
+</script>
+
+
+</body>
+</html>
