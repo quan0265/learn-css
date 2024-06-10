@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>components</title>
+	<link rel="stylesheet" href="base_bs.css">
+</head>
+<body>
+	
+<style type="text/css">
+	body {
+		font-size: 15px;
+		font-family: arial;
+	}
+	.container {
+		max-width: 600px;
+		margin: auto;
+	}
+	br {
+		height: 16px;
+		display: block;
+	}
+	.block {
+		margin-top: 50px;
+		padding-bottom: 32px;
+		border-bottom: 1px solid #cecece;
+	}
+	.block h5 {
+		margin-bottom: 20px;
+	}
+	/*.btn {
+	    display: inline-block;
+	    font-weight: 400;
+	    line-height: 1.5;
+	    color: #212529;
+	    text-align: center;
+	    text-decoration: none;
+	    vertical-align: middle;
+	    cursor: pointer;
+	    -webkit-user-select: none;
+	    -moz-user-select: none;
+	    user-select: none;
+	    background-color: transparent;
+	    border: 1px solid transparent;
+	    padding: 0.375rem 0.75rem;
+	    font-size: 1rem;
+	    border-radius: 0.25rem;
+	    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	}
+	.btn-primary {
+	    color: #fff;
+	    background-color: #0d6efd;
+	    border-color: #0d6efd;
+	}
+	.btn-check:focus+.btn-primary, .btn-primary:focus {
+	    color: #fff;
+	    background-color: #0b5ed7;
+	    border-color: #0a58ca;
+	    box-shadow: 0 0 0 0.125rem rgb(49 132 253 / 50%);
+	}*/
+
+</style>
+
+
+
+<div class="container">
+	
+<style type="text/css">
+	.dropdown {
+		position: relative;
+	}
+	.dropdown-toggle::after {
+	    display: inline-block;
+	    margin-left: 0.255em;
+	    vertical-align: 0.255em;
+	    content: "";
+	    border-top: 0.3em solid;
+	    border-right: 0.3em solid transparent;
+	    border-bottom: 0;
+	    border-left: 0.3em solid transparent;
+	}
+	.dropdown-menu {
+	    /*position: absolute;
+	    z-index: 1000;
+	    display: none;
+	    min-width: 10rem;
+	    padding: 0.5rem 0;
+	    margin: 0;
+	    font-size: 1rem;
+	    color: #212529;
+	    text-align: left;
+	    list-style: none;
+	    background-color: #fff;
+	    background-clip: padding-box;
+	    border: 1px solid rgba(0,0,0,.15);
+	    border-radius: 0.25rem;*/
+	}
+	.dropdown-menu.show {
+		display: block;
+	}
+</style>
+<div class="block">
+	<h5>Dropdown</h5>
+	<div class="dropdown">
+	    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+	        Dropdown button
+	        <span>abc</span>
+	    </button>
+	    <ul class="dropdown-menu">
+	        <li><a class="dropdown-item" href="#">Link 1</a></li>
+	        <li><a class="dropdown-item" href="#">Link 2</a></li>
+	        <li><a class="dropdown-item" href="#">Link 3</a></li>
+	    </ul>
+	</div>
+</div>
+
+<div class="block">
+	<h5>Simple Collapsible</h5>
+	<p>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+            aria-controls="collapseExample">
+            Link with href
+        </a>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Button with data-bs-target
+        </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user
+            activates the relevant trigger.
+        </div>
+    </div>
+</div>
+
+
+<div class="block">
+	<h5>Collapse</h5>
+	<div id="accordion">
+	    <div class="card1">
+	        <div class="card-header">
+	            <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+	                Collapsible Group Item #1
+	            </a>
+	            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseOne">Simple collapsible</button> -->
+	        </div>
+	        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+	            <div class="card-body">
+	                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, eos. Tempore sunt quaerat id consequuntur blanditiis a quidem nam numquam.
+	            </div>
+	        </div>
+	    </div>
+	    <div class="card1">
+	        <div class="card-header">
+	            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+	                Collapsible Group Item #2
+	            </a>
+	        </div>
+	        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+	            <div class="card-body">
+	                Lorem ipsum..
+	            </div>
+	        </div>
+	    </div>
+	    <div class="card1">
+	        <div class="card-header">
+	            <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+	                Collapsible Group Item #3
+	            </a>
+	        </div>
+	        <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+	            <div class="card-body">
+	                Lorem ipsum..
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<div class="block">
+	<h5>Nav Tabs</h5>
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs">
+	    <li class="nav-item">
+	        <a class="nav-link active" data-bs-toggle="tab" href="#home">Home</a>
+	    </li>
+	    <li class="nav-item">
+	        <a class="nav-link" data-bs-toggle="tab" href="#menu1">Menu 1</a>
+	    </li>
+	    <li class="nav-item">
+	        <a class="nav-link" data-bs-toggle="tab" href="#menu2">Menu 2</a>
+	    </li>
+	</ul>
+	<!-- Tab panes -->
+	<div class="tab-content">
+	    <div class="tab-pane container fade active" id="home">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam.</div>
+	    <div class="tab-pane container fade" id="menu1">Lorem ipsum, dolor sit, amet consectetur adipisicing elit.</div>
+	    <div class="tab-pane container fade" id="menu2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, voluptates.</div>
+	</div>
+</div>
+
+<div class="block">
+	<h5>Modal</h5>
+	<!-- Button to Open the Modal -->
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+	    Open modal
+	</button>
+	<!-- The Modal -->
+	<div class="modal fade" id="myModal">
+	    <div class="modal-dialog modal-dialog-centered">
+	        <div class="modal-content">
+	            <!-- Modal Header -->
+	            <div class="modal-header">
+	                <h4 class="modal-title">Modal Heading</h4>
+	                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	            </div>
+	            <!-- Modal body -->
+	            <div class="modal-body">
+	                Modal body..
+	            </div>
+	            <!-- Modal footer -->
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<div class="block">
+	<h5>Accord</h5>
+	<div class="accordion" id="accord1">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="accord1a">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1"
+                    aria-expanded="true" aria-controls="collapse1">
+                    Accordion Item #1
+                </button>
+            </h2>
+            <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="accord1a"
+                data-bs-parent="#accord1">
+                <div class="accordion-body">
+                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
+                    plugin adds the appropriate classes that we use to style each element. These classes control the overall
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="accourd1b">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                    Accordion Item #2
+                </button>
+            </h2>
+            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="accourd1b"
+                data-bs-parent="#accord1">
+                <div class="accordion-body">
+                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
+                    plugin adds the appropriate classes that we use to style each element. These classes control the overall
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="accordc">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                    Accordion Item #3
+                </button>
+            </h2>
+            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="accordc"
+                data-bs-parent="#accord1">
+                <div class="accordion-body">
+                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse
+                    plugin adds the appropriate classes that we use to style each element. These classes control the overall
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<script type="text/javascript" src="boostrap.js"></script>
+</body>
+</html>
