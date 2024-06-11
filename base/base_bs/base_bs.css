@@ -840,7 +840,7 @@ ul,ol {
     background-color: transparent;
 }
 
-.dropdown-menu.show {
+.dropdown.show.dropdown-menu, .dropdown-menu.show {
     display: block;
 }
 
