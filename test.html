@@ -1,41 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="D:/assets/css/bootstrap.min.css">
-    <script type="text/javascript" src="D:/assets/js/bootstrap.bundle.min.js"></script>
-</head>
-
-<body>
-    <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-4">
-            <label for="validationCustom01" class="form-label">First name</label>
-            <input type="email" class="form-control" id="validationCustom01" value="" required>
-            <div class="invalid-feedback">Your name is required.</div>
-            <div class="valid-feedback">Looks good!</div>
-        </div>
-        <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit form</button>
-        </div>
-    </form>
-    <script type="text/javascript">
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('form.needs-validation')
-    forms.forEach(function(form) {
-    	form.addEventListener('submit', function() {
-    		if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-            }
-            form.classList.add('was-validated')
-    	})
-    })
-    </script>
-</body>
-
-</html>
+<form id="form_edit" class="needs-validation" novalidate="">
+    <div class="form-group"><label class="form-label"><span>Email</span>
+        <input type="text" name="email"
+        class="form-control form-control-lg" placeholder="email" required=""></label>
+        <div class="invalid-feedback">No, you missed this one.</div>
+        <div class="help-block">Your unique username to app</div>
+    </div>
+    <div class="form-group"><label class="form-label" for="password"><span>Password</span> <input type="password"
+                name="password" class="form-control form-control-lg" placeholder="password" required=""></label>
+        <div class="invalid-feedback">Sorry, you missed this one.</div>
+        <div class="help-block">Your password</div>
+    </div>
+    <div class="form-group text-left">
+        <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="rememberme">
+            <label class="custom-control-label" for="rememberme">Remember me for the next 30 days</label></div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-lg-6 pr-lg-1 my-2" style="display: none;"><button type="submit"
+                class="btn btn-info btn-block btn-lg">Sign in with <i class="fab fa-google"></i></button></div>
+        <div class="col-lg-6 pl-lg-1 my-2"><button type="submit"
+                class="btn_login btn btn-danger btn-block btn-lg">Secure login</button></div>
+    </div>
+</form>
